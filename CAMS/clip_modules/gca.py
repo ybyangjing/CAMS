@@ -56,15 +56,15 @@ class ResidualAttentionBlock(nn.Module):
         return x
     
     def forward(self, x):
-        x,latent_queries,cross_attention = x
+        x,latent_units,cross_attention = x
         # Extract semantic features using Latent Queries.
         if self.pos >= 24 - self.m_layers:
             x = self.std(x) # Loading LoRA
-            latent_queries = cross_attention(latent_queries,x)  
+            latent_units = cross_attention(latent_units,x)  
         else:
             x = x + self.attention(self.ln_1(x)) # Clip attention
             x = x + self.mlp(self.ln_2(x)) # Clip mlp
-        return x,latent_queries,cross_attention
+        return x,latent_units,cross_attention
 
 class Transformer(nn.Module):
     def __init__(
@@ -136,7 +136,7 @@ class VisionTransformer(nn.Module):
         self.proj_obj = nn.Parameter(scale * torch.randn(width, output_dim))
         self.proj_com = nn.Parameter(scale * torch.randn(width, output_dim))
 
-        self.latent_queries = nn.Parameter(torch.randn(args.num_queries,width))
+        self.latent_units = nn.Parameter(torch.randn(args.num_units,width))
 
         self.drop = nn.Dropout(0.5)
         self.pre_norm = LayerNorm(width)
@@ -161,28 +161,28 @@ class VisionTransformer(nn.Module):
         batch_size = x.size(0)
         x = self.before(x)
 
-        # Introduce latent_queries for extracting features
-        latent_queries = self.drop(self.latent_queries)
-        latent_queries = latent_queries.unsqueeze(0).repeat(batch_size,1,1)
+        # Introduce latent_units for extracting features
+        latent_units = self.drop(self.latent_units)
+        latent_units = latent_units.unsqueeze(0).repeat(batch_size,1,1)
         
-        x,latent_queries = self.transformer([x,latent_queries,self.cross_attention])[:2]
+        x,latent_units = self.transformer([x,latent_units,self.cross_attention])[:2]
         
         # Multi-Space Disentanglement
-        att_queries = self.tr_a(latent_queries)
-        obj_queries = self.tr_o(latent_queries)
-        com_queries = self.tr_c(latent_queries)
+        att_units = self.tr_a(latent_units)
+        obj_units = self.tr_o(latent_units)
+        com_units = self.tr_c(latent_units)
         
-        att_queries = self.ln_norm(att_queries.mean(1))
-        obj_queries = self.ln_norm(obj_queries.mean(1))
-        com_queries = self.ln_norm(com_queries.mean(1))
+        att_units = self.ln_norm(att_units.mean(1))
+        obj_units = self.ln_norm(obj_units.mean(1))
+        com_units = self.ln_norm(com_units.mean(1))
 
-        att_queries = att_queries @ self.proj_att
-        obj_queries = obj_queries @ self.proj_obj
-        com_queries = com_queries @ self.proj_com
+        att_units = att_units @ self.proj_att
+        obj_units = obj_units @ self.proj_obj
+        com_units = com_units @ self.proj_com
 
-        att = self.drop(att_queries)
-        obj = self.drop(obj_queries)
-        com = self.drop(com_queries)
+        att = self.drop(att_units)
+        obj = self.drop(obj_units)
+        com = self.drop(com_units)
         ################################
         
         # glb representation
