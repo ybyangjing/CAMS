@@ -3,7 +3,7 @@ model:
   prompt_template: ["a photo of x x", "a photo of x", "a photo of x"]
   ctx_init: ["a photo of ", "a photo of ", "a photo of "]
   clip_model: "ViT-L/14"
-  num_queries: 32
+  num_units: 32
   m_layers: 12  
   adapter_dim: 128
 
