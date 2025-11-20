@@ -2,6 +2,11 @@
 
 * **Title**: **CAMS: Towards Compositional Zero-Shot Learning via Gated Cross-Attention and Multi-Space Disentanglement**
 * **Authors**: **Pan Yang**, **Cheng Deng**, **Jing Yang**, **Han Zhao**, **Yun Liu**, **Yuling Chen**, **Xiaoli Ruan**, **Yanping Chen**
+
+<p align="center">
+  <img src="https://github.com/ybyangjing/CAMS/blob/main/img/introduction.png">
+</p>
+
 ## Overview
 <p align="center">
   <img src="https://github.com/ybyangjing/CAMS/blob/main/img/framework.png">
