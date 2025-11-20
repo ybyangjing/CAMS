@@ -3,7 +3,7 @@ model:
   prompt_template: ["a photo of x x", "a photo of x", "a photo of x"]
   ctx_init: ["a photo of ", "a photo of ", "a photo of "]
   clip_model: "ViT-L/14"
-  num_queries: 32
+  num_units: 32
   m_layers: 8  
   adapter_dim: 128
 
@@ -31,4 +31,5 @@ test:
   threshold: 0.3625205941
   threshold_trials: 50
   beta: 0.85  
+
   load_model: false # Path of the trained model
