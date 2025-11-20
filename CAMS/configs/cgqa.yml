@@ -1,0 +1,34 @@
+model:
+  model_name: CAMS
+  prompt_template: ["a photo of x x", "a photo of x", "a photo of x"]
+  ctx_init: ["a photo of ", "a photo of ", "a photo of "]
+  clip_model: "ViT-L/14"
+  num_queries: 32
+  m_layers: 12  
+  adapter_dim: 128
+
+train:
+  dataset: cgqa
+  step_size: 5
+  gamma: 0.5
+  lr: 0.0001
+  train_batch_size: 64   
+  epochs: 15
+  context_length: 8
+  seed: 0
+  val_metric: AUC
+  save_final_model: True
+  save_path: weight
+  att_loss_weight: 0.5
+  obj_loss_weight: 0.5
+  com_loss_weight: 1
+  glb_loss_weight: 1
+
+test:
+  open_world: false  # If it’s the open-world setting, just set it to "true"
+  eval_batch_size: 64
+  feasibility: feasibilities/feasibility_cgqa.pt
+  threshold: 0.4228139529
+  threshold_trials: 50
+  beta: 0.85  
+  load_model: false # Path of the trained model
