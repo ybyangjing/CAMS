@@ -7,6 +7,7 @@
 <p align="center">
   <img src="https://github.com/ybyangjing/CAMS/blob/main/img/framework.png">
 </p>
+
 Compositional zero-shot learning (CZSL) aims to recognize unseen attribute–object compositions from seen ones, but CLIP-based methods often suffer from limited disentanglement due to the restricted capacity of global image representations. We propose CAMS, a semantic disentangled framework that leverages high-level semantic features, employs Gated Cross-Attention to adaptively extract fine-grained visual features, and applies Multi-Space Disentanglement to align semantic features with prompts, improving generalization to unseen compositions. Evaluated on MIT-States, UT-Zappos, and C-GQA, CAMS achieves state-of-the-art performance, boosting HM by up to **+9.3%** and AUC by **+12.4%** in both closed-world and open-world settings.
 
 ## Results
