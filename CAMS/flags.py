@@ -2,7 +2,7 @@ import argparse
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('--config', default='configs/utzappos.yml', help='Path of the config file') 
+parser.add_argument('--config', default='CAMS/configs/utzappos.yml', help='Path of the config file') 
 parser.add_argument('--dataset_path', default='ut-zap50k', help='Path of the dataset')
 parser.add_argument('--splitname', default='compositional-split-natural', help="Dataset split")
 parser.add_argument('--open_world', action='store_true', default=False, help='perform open world experiment')
