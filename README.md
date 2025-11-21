@@ -17,7 +17,7 @@ The model code is implemented based on the PyTorch framework. The experimental e
 - Ubuntu20.04
 - Intel(R) Core(TM) i9-12900K CPU
 - 128GB RAM
-- NVIDIA GeForce RTX 6000 GPU
+- NVIDIA RTX 6000 GPU
 
 
 ## Results
