@@ -19,7 +19,11 @@ The model code is implemented based on the PyTorch framework. The experimental e
 - 128GB RAM
 - NVIDIA RTX 6000 GPU
 
+## Dataset
+We experiment with three datasets: MIT-States, UT-Zappos, and C-GQA.
+The three datasets can be downloaded by clicking [here](https://pan.baidu.com/s/1LNV1ZErT7rXmAVv0hSsI-w?pwd=q2ky).
 
+You only need to modify the **config file path** and the corresponding **dataset_path** in ``CAMS\flags.py``.
 ## Results
 ### Main Results
 
