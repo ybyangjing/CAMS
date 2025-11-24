@@ -21,7 +21,7 @@ The model code is implemented based on the PyTorch framework. The experimental e
 
 ## Dataset
 We experiment with three datasets: MIT-States, UT-Zappos, and C-GQA.
-The three datasets can be downloaded by clicking [here](https://pan.baidu.com/s/1LNV1ZErT7rXmAVv0hSsI-w?pwd=q2ky).
+The three datasets can be downloaded by clicking [here](https://pan.baidu.com/s/1EjuOntesOsOlE26wpu2kAg?pwd=4g4b).
 
 You only need to modify the **config file path** and the corresponding **dataset_path** in ``CAMS\flags.py``.
 ## Results
