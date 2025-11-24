@@ -32,6 +32,19 @@ The following results show the closed-world and open-world performance of CAMS, 
   <img src="https://github.com/ybyangjing/CAMS/blob/main/img/main_results.png" alt="main_results">
 </p>
 
+## Citation
+If you find this work useful in your research, please cite our paper:
+
+```
+@article{yang2025cams,
+  title={CAMS: Towards Compositional Zero-Shot Learning via Gated Cross-Attention and Multi-Space Disentanglement},
+  author={Yang, Pan and Deng, Cheng and Yang, Jing and Zhao, Han and Liu, Yun and Chen, Yuling and Ruan, Xiaoli and Chen, Yanping},
+  journal={arXiv preprint arXiv:2511.16378},
+  year={2025}
+}
+```
+
+
 ## Acknowledgement
 Our code references the following project:
 * [Troika](https://github.com/bighuang624/Troika)
