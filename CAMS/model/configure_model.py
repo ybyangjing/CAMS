@@ -4,7 +4,7 @@ from model.cams import CAMS
 def configure_model(args,dataset):
     
     cams = CAMS(args,dataset)
-    keywords = ['csp','norm','tr_','adapter','proj_att','proj_obj','proj_com','temp_logit','cross_attention','latent_queries']
+    keywords = ['csp','norm','tr_','adapter','proj_att','proj_obj','proj_com','temp_logit','cross_attention','latent_units']
     
     # Freeze the pre-trained CLIP parameters.
     for name, param in cams.named_parameters():
@@ -19,3 +19,4 @@ def configure_model(args,dataset):
     )
 
     return cams, optimizer
+
